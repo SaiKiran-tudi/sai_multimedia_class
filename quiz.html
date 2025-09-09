@@ -1,0 +1,25 @@
+<!-- JS/Capitals0JS.html -->
+<!DOCTYPE html>
+<html>
+<head><title>Animals</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+    var A = ["Cat", "Dog", "Cow", "Lion", "Elephant","Duck","Deer"];
+    var Cap = ["Kitten", "Puppy", "Calf", "Cub", "Calf","Duckling","Fawn"];
+	
+function start() {
+        var i = Math.floor(Math.random() * A.length); // find random index
+        var user = prompt("What is the baby of " + A[i] + " called ?", "");
+        var correct = Cap[i];
+        var result = (user.toLowerCase() === correct.toLowerCase()) ? "Correct!" : "Wrong!";
+		result = result + " The Baby of " + A[i] + " is called " + Cap[i] + "."; 
+        document.getElementById("res").innerHTML = result;
+    }
+</script></head>
+<button><body> <a href="index.html">Back to class</a></button>
+    <h2>Test your knowledge of animals</h2>
+    <img src="pictures\copilot\animals.png"width ="300" alt="animals image">
+    <button onClick="start()">Start here</button>
+    <p id="res">Your answer will appear here</p>
+</body>
+</html>
