@@ -1,0 +1,139 @@
+<!-- ProgramsJS/helloJSstudent.html -->
+<html>
+<head><title>helloJS</title>
+<style>
+body {background-color:#E0FFFF;}
+h1,h3,h4 {background-color: #AFEEEE	 ;text-align: center}
+
+#big {display: flex;
+	  font-size: 12px; 
+	  border: 5px ridge orange; 
+      padding: 30px; 
+	  background-color: ridge orange;	  
+	}
+#big div  {  width: 450px;  
+             height: 700px;
+             margin-left : 10px; 
+			 margin: 0 auto;
+			 border: 5px ridge orange;
+			 padding: 30px;
+			 background-color: mintCream;
+	}
+
+</style>
+</head>
+<body>
+	<button> <a href="../../mmfiles/stud597AH1.html">Back to class</a> </button>
+	<script> document.write("<br>"+ document.URL);</script>
+<script>
+var d= new Date().toLocaleString();
+document.write("<br>"+ d);
+</script>
+
+
+<h1>SAIKIRAN TUDI</h1>
+		<h3>Open JS: <b>CTRL + SHIFT+ J</b> and type what is written below:</h3>
+<div id ="big">
+<div>
+<pre>
+&gt; alert('how are you?')
+&gt; n = 3; m = 5;
+5
+&gt; n+m
+8
+&gt; Math.sqrt(n)
+1.7320508075688772
+&gt; (n * 2) % 3
+0
+&gt; n*2
+6
+&gt; var x = n + Math.pow(n,3)
+&gt; x
+30
+&gt; function mydouble(x) { return x * 2;}
+&gt; mydouble(8)
+16
+&gt; x
+30
+&gt; "cs" +"597";
+'cs597'
+&gt; "cs".concat("579")
+'cs579'
+&gt; parseInt("89")
+89
+&gt; var x = prompt("enter a number");
+&gt; x
+'2023'
+&gt; x + 3
+'20233'
+&gt; parseInt(x) + 3
+2026
+&gt; 'math' == 'math1'
+false
+&gt; 5 == 6
+false
+&gt;  if (6 == 7) x = 0; else x =1;
+1
+&gt;  if (2003 % 2 == 0) s = "even"; else s = "odd";
+'odd'
+&gt; s
+'odd'
+&gt; if (2003 % 2 == 0) { s = "even"; } else {s = "odd";}
+'odd'
+&gt; s
+'odd'</pre>
+</div>
+<div>
+<pre>
+&gt; for( let  i = 0; i &lt; 5; i++){
+    alert(i);
+}
+&gt; function addall(n){ res = 0; for( let  i =0; i &lt; n; i++){
+    res = res + i;
+} return res;}
+undefined
+&gt;addall(5)
+10
+&gt; var A = ['turing','ada','boole'];
+&gt; A.sort();
+['ada' , 'boole', 'turing']
+&gt; A.length;
+3
+&gt; A.push('babbage');
+4
+&gt; A
+['ada', 'boole', 'turing', 'babbage']
+&gt; A.pop();
+'babbage'
+&gt; A[0]
+'ada'
+&gt; A.indexOf('boole');
+1
+&gt; A.toString()
+'ada,boole,turing'
+&gt; var B = [[1,'a'],[2,'b'],'c'];
+&gt; B.length
+3
+&gt; A = [6,7,8]
+&gt; A.includes(8)
+true
+&gt; A.includes(9)
+false
+&gt; A.indexOf(8)
+2
+&gt; A.concat(A)
+[6, 7, 8, 6, 7, 8]
+&gt; A + A
+'6,7,86,7,8'
+&gt; A.filter(x => x > 6);
+[7, 8]
+&gt; A.find(x => (x % 2) == 0);
+6
+&gt; A.every( x => x > 5);
+true
+&gt; var B = [5,5,5,5];
+&gt; B.every(x => x == B[0]);
+</pre>
+</div>
+</div> <!-- container -->
+</body></html>

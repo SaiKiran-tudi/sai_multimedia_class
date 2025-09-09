@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Games</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <h1 id = "top">Game Zone</h1>
+        <p>Your Ultimate Source for Gaming Information!</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="index.html">Gaming News</a></li>
+			<li><a href="play.html">Play Games</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="games">
+        <h2>Featured Games</h2>
+        <div class="game-list">
+            <div class="game-item">
+				<a href="https://www.rockstargames.com/gta-v"><img src="images/gta.jpeg" alt="Game 1"></a>
+				<h3>GTA V</h3>
+				<p>When a young street hustler, a retired bank robber, and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government, and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody — least of all each other.</p>
+			</div>
+            <div class="game-item">
+				<a href="https://www.callofduty.com/blackops6/pc"><img src="images/cod.jpeg" alt="Game 2"></a>
+				<h3>COD Black Ops 6</h3>
+				<p>A spy action thriller game developed by Treyarch and Raven. Set in 1991, the single-player story follows rogue operatives Troy Marshall and Frank Woods as they hunt down the paramilitary group Pantheon, which plans to enact a false flag attack on the United States. The game features a cinematic single-player campaign, a best-in-class multiplayer experience, and the return of round-based zombies</p>
+			</div>
+            <div class="game-item">
+				<a href="https://www.minecraft.net/en-us"><img src="images/minecraft.jpg" alt="Game 3"></a>
+				<h3>Minecraft</h3>
+				<p>Minecraft has no set goal and can be played however you’d like! This is why it’s sometimes called a “sandbox game” – there are lots of things for you to do, and lots of ways that you can play. If you like being creative, then you can use the blocks to build things from your imagination. If you’re feeling brave, you can explore the world and face daring challenges.</p>
+			</div>
+            <div class="game-item">
+				<a href="https://www.rockstargames.com/reddeadredemption2/"><img src="images/rdr.jpg" alt="Game 4"></a>
+				<h3>Red Dead Redemption II</h3>
+				<p>America, 1899. The end of the Wild West era has begun. After a robbery goes badly wrong in the western town of Blackwater, Arthur Morgan and the Van der Linde gang are forced to flee. With federal agents and the best bounty hunters in the nation massing on their heels, the gang must rob, steal and fight their way across the rugged heartland of America in order to survive.</p>
+			</div>
+            <div class="game-item">
+				<a href="https://mafia.2k.com/mafia-2/"><img src="images/mafia.jpg" alt="Game 5"></a>
+				<h3>Mafia II</h3>
+				<p>A beautifully crafted look into the dark and unforgiving world of the Mafia. Hi-octane gunplay, brutal fighting and white-knuckle driving bust onto the screen as a Hollywood-style cinematic experience. It is the intriguing story of Vito Scaletta, who along with his childhood friend, Joe, will descend into the world of organized crime.</p>
+			</div>
+            <div class="game-item">
+				<a href="https://www.cyberpunk.net/us/en/"><img src="images/cyberpunk.jpg" alt="Game 6"></a>
+				<h3>Cyber Punk</h3>
+				<p>Immerse yourself in the Cyberpunk universe, from the original storyline of Cyberpunk 2077 and its gripping spy-thriller expansion Phantom Liberty to the award-winning anime series Cyberpunk: Edgerunners — there are countless stories to discover in the deadly megalopolis of Night City</p>
+			</div>
+            
+        </div>
+    </section>
+	<div class="backTop">
+    <a href="#top" class="back-to-top">⬆ Back to Top</a>
+</div>
+
+
+    <footer>
+        <p>&copy; 2025 Game Zone | All Rights Reserved
+		<br>| saikiran tudi | studi@rivier.edu |</p>
+    </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Thank you for your message! We will get back to you soon.");
+            document.getElementById("contactForm").reset();
+        });
+    </script>
+</body>
+</html>

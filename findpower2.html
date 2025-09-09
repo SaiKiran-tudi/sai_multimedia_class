@@ -1,0 +1,23 @@
+<html>
+<head><title>Find power2</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+function callme (){
+	var x =document.getElementById("nn").value;//
+	var res = Math.pow(2,x) ;
+	document.getElementById("rr").value = res;
+	}
+</script></head>
+<body>
+<button class="button"><a href="index.html">Back to Home</a></button>
+
+<h2>Power of 2</h2>
+Enter an integer:
+<input type="text" id= "nn" value= "2" type = "text" value="0">
+<br>
+Result Power of 2:
+<input type="text" id = "rr">
+<br>
+<button onclick="callme()">Find Power of 2</button>
+</body>
+</html>

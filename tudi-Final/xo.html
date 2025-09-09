@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>TIC TAC TOE</h1>
+    <div class="board" id="board"></div>
+    <p class="message" id="message"></p>
+    <button class="reset" onclick="resetGame()">Restart Game</button>
+
+    <script>
+        const board = document.getElementById("board");
+        const message = document.getElementById("message");
+        let currentPlayer = "X";
+        let gameBoard = ["", "", "", "", "", "", "", "", ""];
+        let gameActive = true;
+
+        // Winning combinations
+        const winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+            [0, 4, 8], [2, 4, 6]  // Diagonals
+        ];
+
+        // Create board cells
+        function createBoard() {
+            board.innerHTML = "";
+            gameBoard.forEach((cell, index) => {
+                let cellElement = document.createElement("div");
+                cellElement.classList.add("cell");
+                cellElement.dataset.index = index;
+                cellElement.innerText = cell;
+                cellElement.addEventListener("click", handleClick);
+                board.appendChild(cellElement);
+            });
+        }
+
+        // Handle cell click
+        function handleClick(event) {
+            const index = event.target.dataset.index;
+            if (gameBoard[index] !== "" || !gameActive) return;
+
+            gameBoard[index] = currentPlayer;
+            event.target.innerText = currentPlayer;
+            event.target.classList.add("disabled");
+
+            checkWinner();
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+        }
+
+        // Check for winner
+        function checkWinner() {
+            for (const combo of winningCombinations) {
+                const [a, b, c] = combo;
+                if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+                    message.innerText = `${gameBoard[a]} Wins!`;
+                    gameActive = false;
+                    return;
+                }
+            }
+            if (!gameBoard.includes("")) {
+                message.innerText = "It's a Draw!";
+                gameActive = false;
+            }
+        }
+
+        // Reset the game
+        function resetGame() {
+            gameBoard = ["", "", "", "", "", "", "", "", ""];
+            gameActive = true;
+            message.innerText = "";
+            currentPlayer = "X";
+            createBoard();
+        }
+
+        createBoard();
+    </script>
+	<div class="backTop">
+    <a href="play.html" class="back-to-top"> Back to home</a>
+</div>
+	 <footer>
+        <p>&copy; 2025 Game Zone | All Rights Reserved
+		<br>| saikiran tudi | studi@rivier.edu |</p>
+    </footer>
+
+</body>
+</html>

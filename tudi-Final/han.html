@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+	<link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #ff4b2b, #ff416c);
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .hangman-container {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .word {
+            font-size: 2rem;
+            letter-spacing: 8px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .letters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 400px;
+            margin: 10px auto;
+        }
+
+        .letter-btn {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            transition: 0.3s;
+        }
+
+        .letter-btn:hover {
+            background-color: gray;
+        }
+
+        .letter-btn.disabled {
+            background-color: red;
+            color: white;
+            pointer-events: none;
+        }
+
+        .reset {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .reset:hover {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Hangman Game</h1>
+    <p class="message" id="message"></p>
+    
+    <div class="hangman-container">
+        <p><strong>Hint:</strong> <span id="hint"></span></p>
+        <p>Wrong Attempts: <span id="wrongAttempts">0</span> / 6</p>
+        <p class="word" id="wordDisplay"></p>
+        <div class="letters" id="letters"></div>
+        <button class="reset" onclick="resetGame()">Restart Game</button>
+    </div>
+
+    <script>
+        const wordsWithHints = [
+            { word: "javascript", hint: "A popular programming language for web development." },
+            { word: "developer", hint: "A person who writes and maintains software." },
+            { word: "hangman", hint: "A classic word-guessing game with a stick figure." },
+            { word: "programming", hint: "The process of writing computer code to create software." },
+            { word: "computer", hint: "An electronic device for processing data and performing tasks." }
+        ];
+
+        let selectedWord, wordDisplay, wrongAttempts, guessedLetters, hintText;
+
+        const wordElement = document.getElementById("wordDisplay");
+        const hintElement = document.getElementById("hint");
+        const lettersContainer = document.getElementById("letters");
+        const message = document.getElementById("message");
+        const wrongAttemptsElement = document.getElementById("wrongAttempts");
+
+        function initializeGame() {
+            const randomWordObj = wordsWithHints[Math.floor(Math.random() * wordsWithHints.length)];
+            selectedWord = randomWordObj.word;
+            hintText = randomWordObj.hint;
+
+            guessedLetters = new Set();
+            wrongAttempts = 0;
+            wordDisplay = "_".repeat(selectedWord.length);
+
+            updateDisplay();
+            generateLetterButtons();
+            hintElement.innerText = hintText;
+        }
+
+        function updateDisplay() {
+            wordElement.innerText = wordDisplay.split("").join(" ");
+            wrongAttemptsElement.innerText = wrongAttempts;
+        }
+
+        function generateLetterButtons() {
+            lettersContainer.innerHTML = "";
+            for (let i = 65; i <= 90; i++) {
+                const letter = String.fromCharCode(i).toLowerCase();
+                const button = document.createElement("button");
+                button.innerText = letter;
+                button.classList.add("letter-btn");
+                button.onclick = () => handleGuess(letter, button);
+                lettersContainer.appendChild(button);
+            }
+        }
+
+        function handleGuess(letter, button) {
+            if (selectedWord.includes(letter)) {
+                guessedLetters.add(letter);
+                wordDisplay = selectedWord
+                    .split("")
+                    .map((char) => (guessedLetters.has(char) ? char : "_"))
+                    .join("");
+                if (!wordDisplay.includes("_")) {
+                    message.innerText = "🎉 You Win! The word was: " + selectedWord;
+                    disableButtons();
+                }
+            } else {
+                wrongAttempts++;
+                wrongAttemptsElement.innerText = wrongAttempts;
+                if (wrongAttempts >= 6) {
+                    message.innerText = "💀 Game Over! The word was: " + selectedWord;
+                    disableButtons();
+                }
+            }
+            button.classList.add("disabled");
+            updateDisplay();
+        }
+
+        function disableButtons() {
+            document.querySelectorAll(".letter-btn").forEach((btn) => {
+                btn.classList.add("disabled");
+                btn.onclick = null;
+            });
+        }
+
+        function resetGame() {
+            message.innerText = "";
+            initializeGame();
+        }
+
+        initializeGame();
+    </script>
+	<div class="backTop">
+    <a href="play.html" class="back-to-top"> Back to home</a>
+</div>
+	<footer>
+        <p>&copy; 2025 Game Zone | All Rights Reserved
+		<br>| saikiran tudi | studi@rivier.edu |</p>
+    </footer
+</body>
+</html>

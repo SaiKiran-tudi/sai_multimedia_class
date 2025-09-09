@@ -1,0 +1,44 @@
+<!-- Cardgame/gameCard0.html IMPROVE!-->
+<html>
+<head><title>gameCard0</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<script>
+
+    var RANKS = ["2","3","4","5","6","7","8","9","10","jack","queen","king","ace"];// n = 13
+    var SUITS = ["hearts", "diamonds", "clubs", "spades"];// n = 4
+	var filename; // ex: filename = "cardImages/" + "king_of_clubs.png"
+	var win;
+	function getCard(){// always
+		    var rank = RANKS[Math.trunc(Math.random() * 13)];//find RANKS[0,..,12]
+			var suit = SUITS[Math.trunc(Math.random() * 4)]; //find SUIT[0,...3]
+			filename = "cardImages/" + rank + "_of_" + suit + ".png";//"cardImages/king_of_clubs.png"
+			if (suit === "hearts")
+				win = "WIN";
+			else
+				lose = "lose"
+				
+			return filename;
+	}
+	function displayCard(){
+	        var card1 = getCard();
+			var card2 = getCard();
+			var card3 = getCard();
+	        var simg1 = "<img src='" + card1 + "' >";//img
+			var simg2 = "<img src='" + card2 + "' >";//img
+			var simg3 = "<img src='" + card3 + "' >";//img
+			// "<img src='cardImages/king_of_clubs.png'>"
+			document.getElementById("here").innerHTML = simg1 + " " + simg2 + " " + simg3 ;//display img in HTML
+			document.getElementById("win").innerHTML = win;//display img in HTML
+	}
+</script></head>
+<body>
+<button><a href="index.html">Back to class</a> </button>
+    <h1>When you click three random cards will be shown</h1>
+	  <h2>you win when a card is hearts</h2>
+	
+	<button onclick="displayCard()">Display card</button>
+	
+	<div id="here"></div>
+	
+</body>
+</html>
